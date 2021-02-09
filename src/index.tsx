@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import './index.scss'
 import App from './pages/'
 import Contact from './pages/contacts'
+import Meeting from './pages/meetings'
 import User from './pages/users'
 import reportWebVitals from './reportWebVitals'
 import store from 'modules/index'
@@ -15,6 +16,9 @@ ReactDOM.render(
       <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/">
           <App />
+        </Route>
+        <Route exact path="/meetings">
+          <Meeting />
         </Route>
         <Route exact path="/contacts/:id">
           <Contact />

@@ -1,0 +1,36 @@
+.th {
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.headerCell {
+  text-align: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #cccccc60;
+}
+
+.cell {
+  height: 16px;
+  width: 128px;
+  border-bottom: 1px solid #cccccc60;
+  border-right: 1px solid #cccccc60;
+  cursor: pointer;
+
+  &:hover {
+    background: #cccccc80;
+  }
+}
+
+.hour {
+  position: relative;
+  top: -16px;
+  font-weight: normal;
+}
+
+.half {
+
+}
+
+.tr {
+  border-bottom: 1px solid #cccccc20;
+}
