@@ -15,10 +15,10 @@ ReactDOM.render(
     <Provider store={store}>
       <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/">
-          <App />
-        </Route>
-        <Route exact path="/meetings">
           <Meeting />
+        </Route>
+        <Route exact path="/contacts">
+          <App />
         </Route>
         <Route exact path="/contacts/:id">
           <Contact />

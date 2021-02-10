@@ -8,7 +8,7 @@ const Header: React.FC<Props> = () => {
   return (
     <header className={styles.container}>
       <div className={styles.logo}>
-        <h1>Contact List</h1>
+        <h1>Calnedar</h1>
       </div>
       <div className={styles.menu}>
         <ul>
@@ -16,7 +16,7 @@ const Header: React.FC<Props> = () => {
             <Link to="/">Top</Link>
           </li>
           <li>
-            <Link to="/meetings">Meeting</Link>
+            <Link to="/contacts">Contact</Link>
           </li>
           <li>
             <Link to="/users">Profile</Link>
