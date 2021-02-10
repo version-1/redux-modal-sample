@@ -31,17 +31,18 @@ export const App = () => {
           </tr>
         </thead>
         <tbody>
-          {new Array(4 * 24).fill('').map((_: string, index: number) => {
-            const time = index % 4 === 0 ? zeropadd(index / 4) + ':00' : ''
+          {new Array(4 * 24).fill('').map((_: string, rowIndex: number) => {
+            const time =
+              rowIndex % 4 === 0 ? zeropadd(rowIndex / 4) + ':00' : ''
             return (
               <tr className={styles.tr}>
                 <th className={`${styles.th} ${time && styles.hour}`}>
                   {time}
                 </th>
-                {new Array(7).fill('').map((_: string, index: number) => {
-                  const datetime = `${dates[index]} ${zeropadd(
-                    Math.floor(index / 4)
-                  )} : ${zeropadd((index % 4) * 15)}`
+                {new Array(7).fill('').map((_: string, colIndex: number) => {
+                  const datetime = `${dates[colIndex]} ${zeropadd(
+                    Math.floor(rowIndex / 4)
+                  )} : ${zeropadd((rowIndex % 4) * 15)}`
                   return (
                     <td
                       className={styles.cell}
@@ -54,13 +55,14 @@ export const App = () => {
                                 body: (
                                   <ReservationForm
                                     name="予約 太郎"
-                                    datetime={datetime} />
+                                    datetime={datetime}
+                                  />
                                 ),
                                 onSubmit: () => {
                                   console.log('submit 1')
                                   dispatch(
                                     notify({
-                                      type: 'warning',
+                                      type: 'error',
                                       message: 'エラーが発生しました'
                                     })
                                   )
