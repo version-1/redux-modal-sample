@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/redux-modal-sample/static/css/main.2bb4c7cc.chunk.css",
-    "main.js": "/redux-modal-sample/static/js/main.a46ad67f.chunk.js",
-    "main.js.map": "/redux-modal-sample/static/js/main.a46ad67f.chunk.js.map",
+    "main.js": "/redux-modal-sample/static/js/main.d818517f.chunk.js",
+    "main.js.map": "/redux-modal-sample/static/js/main.d818517f.chunk.js.map",
     "runtime-main.js": "/redux-modal-sample/static/js/runtime-main.24866cbf.js",
     "runtime-main.js.map": "/redux-modal-sample/static/js/runtime-main.24866cbf.js.map",
     "static/js/2.8f362ebb.chunk.js": "/redux-modal-sample/static/js/2.8f362ebb.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.24866cbf.js",
     "static/js/2.8f362ebb.chunk.js",
     "static/css/main.2bb4c7cc.chunk.css",
-    "static/js/main.a46ad67f.chunk.js"
+    "static/js/main.d818517f.chunk.js"
   ]
 }
