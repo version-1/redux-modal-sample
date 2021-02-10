@@ -9,10 +9,12 @@ import User from './pages/users'
 import reportWebVitals from './reportWebVitals'
 import store from 'modules/index'
 import { Provider } from 'react-redux'
+import Modal from 'components/templates/modal'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Modal />
       <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/">
           <Meeting />
