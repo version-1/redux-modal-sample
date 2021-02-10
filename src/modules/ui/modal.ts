@@ -3,6 +3,11 @@ import { createSlice, createSelector } from '@reduxjs/toolkit'
 const defaultTabProps = {
   index: -1,
   title: '',
+  message: {
+    error: '' as JSX.Element | string,
+    warning: '' as JSX.Element | string,
+    info: '' as JSX.Element | string
+  },
   header: undefined as JSX.Element | undefined,
   body: undefined as JSX.Element | undefined,
   footer: undefined as JSX.Element | undefined,
@@ -28,6 +33,15 @@ const slice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
+    notify(state: any, action: any) {
+      const { type, message } = action.payload
+
+      const content = state.contents[state.tabIndex]
+      content.message = { ...defaultTabProps.message }
+
+      content.message[type] = message
+      state.contents[state.tabIndex] = content
+    },
     setIndex(state, action: any) {
       state.tabIndex = action.payload.index
     },
@@ -47,7 +61,7 @@ const slice = createSlice({
   }
 })
 
-export const { show, hide, setIndex } = slice.actions
+export const { show, hide, notify, setIndex } = slice.actions
 
 export const modalSelector = createSelector(
   (state: any) => {

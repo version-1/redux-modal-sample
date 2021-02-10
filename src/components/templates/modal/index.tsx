@@ -4,6 +4,20 @@ import { hide, modalSelector, setIndex, TabProps } from 'modules/ui/modal'
 
 const MODAL_WIDTH = 600
 
+const Message: React.FC<{ type: string; message: JSX.Element | string }> = ({
+  type,
+  message
+}): any => {
+  if (!message) {
+    return null
+  }
+  return typeof message === 'string' ? (
+    <div className={styles[`message-${type}`]}>{message}</div>
+  ) : (
+    { message }
+  )
+}
+
 const Modal = () => {
   const { show, contents, tabIndex, onClose: onModalClose } = useSelector(
     modalSelector
@@ -45,8 +59,7 @@ const Modal = () => {
                     const diff = content.index - tabIndex
                     const distance = Math.abs(diff)
                     for (let i = 1; i <= distance; i++) {
-                      const index =
-                        diff > 0 ? tabIndex + i : tabIndex - i
+                      const index = diff > 0 ? tabIndex + i : tabIndex - i
                       const interval = 100 * i
                       setTimeout(() => dispatch(setIndex({ index })), interval)
                     }
@@ -66,6 +79,7 @@ const Modal = () => {
             const {
               title,
               header,
+              message,
               footer,
               body,
               onSubmit,
@@ -73,7 +87,7 @@ const Modal = () => {
               okLabel,
               cancelLabel
             } = content
-            const active = content.index === tabIndex
+            console.log('message', content.index, message)
 
             return (
               <div
@@ -84,7 +98,18 @@ const Modal = () => {
                 }}
               >
                 <div className={`${styles.header}`}>
-                  {header ? header : <h3>{title}</h3>}
+                  {header ? (
+                    header
+                  ) : (
+                    <div>
+                      <h3>{title}</h3>
+                      <aside>
+                        <Message type="error" message={message.error} />
+                        <Message type="info" message={message.info} />
+                        <Message type="warning" message={message.warning} />
+                      </aside>
+                    </div>
+                  )}
                 </div>
                 <div className={`${styles.content}`}>{body}</div>
                 <div className={`${styles.footer}`}>

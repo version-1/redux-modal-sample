@@ -103,3 +103,30 @@
   transition: all 0.1s linear;
   transform: translateX(-0px);
 }
+
+.message-error,
+.message-info,
+.message-warning {
+  font-size: 0.8rem;
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.message-error {
+  background: #ff000040;
+  border: 2px solid #bb1e1e;
+  color: #bb1e1e;
+}
+
+.message-info {
+  background: #87ceeb40;
+  border: 2px solid skyblue;;
+  color: skyblue;
+}
+
+.message-warning {
+  background: #ffe10040;
+  border: 2px solid #ab9a1e;
+  color: #ab9a1e;
+}

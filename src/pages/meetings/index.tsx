@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Layout from 'components/templates/layout'
 import styles from './index.module.scss'
-import { show } from 'modules/ui/modal'
+import { show, notify } from 'modules/ui/modal'
 import ReservationForm from 'components/organisms/contact/ReservationForm'
 
 const zeropadd = (value: number, digit = 2) => {
@@ -54,11 +54,16 @@ export const App = () => {
                                 body: (
                                   <ReservationForm
                                     name="予約 太郎"
-                                    datetime={datetime}
-                                  />
+                                    datetime={datetime} />
                                 ),
                                 onSubmit: () => {
                                   console.log('submit 1')
+                                  dispatch(
+                                    notify({
+                                      type: 'warning',
+                                      message: 'エラーが発生しました'
+                                    })
+                                  )
                                 },
                                 okLabel: '予約'
                               },
@@ -72,6 +77,12 @@ export const App = () => {
                                 ),
                                 onSubmit: () => {
                                   console.log('submit 2')
+                                  dispatch(
+                                    notify({
+                                      type: 'info',
+                                      message: '予約が完了しました'
+                                    })
+                                  )
                                 },
                                 okLabel: '予約'
                               },
